@@ -1,6 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
 function App() {
     return (
         <BrowserRouter>
@@ -8,22 +9,23 @@ function App() {
                 <header className='row'>
                     <div>
                         <a className='brand' href='index.html'>
-                            Shopips
+                            Marketplace
                         </a>
                     </div>
                     <div>
-                        <a href='/cart'>Cart</a>
+                        <a href='/cart'> Cart</a>
                         <a href='/signin'>Sign In</a>
                     </div>
                 </header>
                 <main>
+                    <Route path='/cart/:id?' component={CartScreen}></Route>
                     <Route
                         path='/product/:id'
                         component={ProductScreen}
                     ></Route>
                     <Route path='/' component={HomeScreen} exact></Route>
                 </main>
-                <footer className='row center'>All rights reserved</footer>
+                <footer className='row center'> All rights reserved.</footer>
             </div>
         </BrowserRouter>
     );
